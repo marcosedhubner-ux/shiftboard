@@ -1,0 +1,84 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum UserRole {
+  OWNER
+  ADMIN
+  STAFF
+}
+
+enum AppointmentStatus {
+  SCHEDULED
+  COMPLETED
+  CANCELLED
+  NO_SHOW
+}
+
+model Tenant {
+  id           String        @id @default(cuid())
+  businessName String
+  slug         String        @unique
+  timezone     String        @default("UTC")
+  createdAt    DateTime      @default(now())
+  users        User[]
+  serviceTypes ServiceType[]
+  appointments Appointment[]
+
+  @@map("tenants")
+}
+
+model User {
+  id           String        @id @default(cuid())
+  tenant       Tenant        @relation(fields: [tenantId], references: [id])
+  tenantId     String
+  fullName     String
+  email        String        @unique
+  passwordHash String
+  role         UserRole
+  createdAt    DateTime      @default(now())
+  appointments Appointment[] @relation("StaffAppointments")
+
+  @@index([tenantId])
+  @@map("users")
+}
+
+model ServiceType {
+  id              String        @id @default(cuid())
+  tenant          Tenant        @relation(fields: [tenantId], references: [id])
+  tenantId        String
+  name            String
+  durationMinutes Int
+  price           Decimal       @db.Decimal(10, 2)
+  isActive        Boolean       @default(true)
+  appointments    Appointment[]
+
+  @@index([tenantId])
+  @@map("service_types")
+}
+
+model Appointment {
+  id            String            @id @default(cuid())
+  tenant        Tenant            @relation(fields: [tenantId], references: [id])
+  tenantId      String
+  staff         User              @relation("StaffAppointments", fields: [staffId], references: [id])
+  staffId       String
+  serviceType   ServiceType       @relation(fields: [serviceTypeId], references: [id])
+  serviceTypeId String
+  clientName    String
+  clientEmail   String
+  startTime     DateTime
+  endTime       DateTime
+  status        AppointmentStatus @default(SCHEDULED)
+  createdAt     DateTime          @default(now())
+  updatedAt     DateTime          @updatedAt
+
+  @@index([tenantId])
+  @@index([staffId, startTime])
+  @@map("appointments")
+}
