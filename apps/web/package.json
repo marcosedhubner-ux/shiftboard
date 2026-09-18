@@ -1,7 +1,8 @@
 {
-  "name": "@shiftboard/web",
+  "name": "@roster/web",
   "version": "0.1.0",
   "private": true,
+  "description": "Staff scheduling that refuses to double-book someone, even when two requests land in the same second.",
   "scripts": {
     "dev": "next dev",
     "build": "next build",

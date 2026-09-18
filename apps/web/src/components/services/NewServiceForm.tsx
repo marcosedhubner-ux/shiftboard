@@ -34,16 +34,16 @@ export function NewServiceForm() {
   return (
     <form onSubmit={handleSubmit} className="grid grid-cols-1 gap-4 sm:grid-cols-3">
       <div>
-        <label className="block text-sm font-medium text-slate-700">Name</label>
+        <label className="block text-sm font-medium text-ink-soft">Name</label>
         <input
           required
           value={name}
           onChange={(event) => setName(event.target.value)}
-          className="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2 text-sm outline-none focus:border-indigo-600 focus:ring-1 focus:ring-indigo-600"
+          className="mt-1 w-full rounded-lg border border-line bg-bg px-3 py-2 text-sm text-ink outline-none focus:border-brass focus:ring-1 focus:ring-brass"
         />
       </div>
       <div>
-        <label className="block text-sm font-medium text-slate-700">Duration (minutes)</label>
+        <label className="block text-sm font-medium text-ink-soft">Duration (minutes)</label>
         <input
           type="number"
           required
@@ -51,11 +51,11 @@ export function NewServiceForm() {
           max={480}
           value={durationMinutes}
           onChange={(event) => setDurationMinutes(Number(event.target.value))}
-          className="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2 text-sm outline-none focus:border-indigo-600 focus:ring-1 focus:ring-indigo-600"
+          className="mt-1 w-full rounded-lg border border-line bg-bg px-3 py-2 text-sm text-ink outline-none focus:border-brass focus:ring-1 focus:ring-brass"
         />
       </div>
       <div>
-        <label className="block text-sm font-medium text-slate-700">Price (USD)</label>
+        <label className="block text-sm font-medium text-ink-soft">Price (USD)</label>
         <input
           type="number"
           required
@@ -63,12 +63,12 @@ export function NewServiceForm() {
           step="0.01"
           value={price}
           onChange={(event) => setPrice(Number(event.target.value))}
-          className="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2 text-sm outline-none focus:border-indigo-600 focus:ring-1 focus:ring-indigo-600"
+          className="mt-1 w-full rounded-lg border border-line bg-bg px-3 py-2 text-sm text-ink outline-none focus:border-brass focus:ring-1 focus:ring-brass"
         />
       </div>
 
       {errorMessage && (
-        <p className="sm:col-span-3 rounded-lg bg-rose-50 px-3 py-2 text-sm text-rose-700">{errorMessage}</p>
+        <p className="sm:col-span-3 rounded-lg bg-danger-soft px-3 py-2 text-sm text-danger-text">{errorMessage}</p>
       )}
 
       <div className="sm:col-span-3">

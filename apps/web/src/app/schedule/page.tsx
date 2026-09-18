@@ -36,19 +36,19 @@ function ScheduleView() {
     <div>
       <div className="mb-6 flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-bold text-slate-900">Schedule</h1>
+          <h1 className="font-serif text-2xl font-bold text-ink">Schedule</h1>
           <input
             type="date"
             value={selectedDate}
             onChange={(event) => setSelectedDate(event.target.value)}
-            className="mt-2 rounded-lg border border-slate-300 px-3 py-1.5 text-sm outline-none focus:border-indigo-600 focus:ring-1 focus:ring-indigo-600"
+            className="mt-2 rounded-lg border border-line bg-surface px-3 py-1.5 text-sm text-ink outline-none focus:border-brass focus:ring-1 focus:ring-brass"
           />
         </div>
         {canBook && <Button onClick={() => setIsBooking(true)}>New appointment</Button>}
       </div>
 
       {isLoading ? (
-        <p className="text-sm text-slate-400">Loading schedule...</p>
+        <p className="text-sm text-ink-soft">Loading schedule...</p>
       ) : (
         <div className="flex gap-6 overflow-x-auto pb-4">
           {staff?.map((member) => (

@@ -37,26 +37,26 @@ export function NewAppointmentPanel({ selectedDate, onClose }: { selectedDate: s
   }
 
   return (
-    <div className="fixed inset-0 z-20 flex justify-end bg-slate-900/30" onClick={onClose}>
+    <div className="fixed inset-0 z-20 flex justify-end bg-black/50" onClick={onClose}>
       <div
-        className="h-full w-full max-w-md overflow-y-auto bg-white p-6 shadow-xl"
+        className="h-full w-full max-w-md overflow-y-auto border-l border-line bg-surface p-6 shadow-xl"
         onClick={(event) => event.stopPropagation()}
       >
         <div className="flex items-center justify-between">
-          <h2 className="text-xl font-bold text-slate-900">New appointment</h2>
-          <button onClick={onClose} className="text-slate-400 hover:text-slate-700">
+          <h2 className="font-serif text-xl font-bold text-ink">New appointment</h2>
+          <button onClick={onClose} className="text-ink-soft hover:text-ink">
             Close
           </button>
         </div>
 
         <form onSubmit={handleSubmit} className="mt-6 space-y-4">
           <div>
-            <label className="block text-sm font-medium text-slate-700">Staff member</label>
+            <label className="block text-sm font-medium text-ink-soft">Staff member</label>
             <select
               required
               value={staffId}
               onChange={(event) => setStaffId(event.target.value)}
-              className="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2 text-sm outline-none focus:border-indigo-600 focus:ring-1 focus:ring-indigo-600"
+              className="mt-1 w-full rounded-lg border border-line bg-bg px-3 py-2 text-sm text-ink outline-none focus:border-brass focus:ring-1 focus:ring-brass"
             >
               <option value="" disabled>
                 Select staff
@@ -70,12 +70,12 @@ export function NewAppointmentPanel({ selectedDate, onClose }: { selectedDate: s
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-slate-700">Service</label>
+            <label className="block text-sm font-medium text-ink-soft">Service</label>
             <select
               required
               value={serviceTypeId}
               onChange={(event) => setServiceTypeId(event.target.value)}
-              className="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2 text-sm outline-none focus:border-indigo-600 focus:ring-1 focus:ring-indigo-600"
+              className="mt-1 w-full rounded-lg border border-line bg-bg px-3 py-2 text-sm text-ink outline-none focus:border-brass focus:ring-1 focus:ring-brass"
             >
               <option value="" disabled>
                 Select service
@@ -92,39 +92,39 @@ export function NewAppointmentPanel({ selectedDate, onClose }: { selectedDate: s
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-slate-700">Start time</label>
+            <label className="block text-sm font-medium text-ink-soft">Start time</label>
             <input
               type="time"
               required
               value={time}
               onChange={(event) => setTime(event.target.value)}
-              className="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2 text-sm outline-none focus:border-indigo-600 focus:ring-1 focus:ring-indigo-600"
+              className="mt-1 w-full rounded-lg border border-line bg-bg px-3 py-2 text-sm text-ink outline-none focus:border-brass focus:ring-1 focus:ring-brass"
             />
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-slate-700">Client name</label>
+            <label className="block text-sm font-medium text-ink-soft">Client name</label>
             <input
               required
               value={clientName}
               onChange={(event) => setClientName(event.target.value)}
-              className="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2 text-sm outline-none focus:border-indigo-600 focus:ring-1 focus:ring-indigo-600"
+              className="mt-1 w-full rounded-lg border border-line bg-bg px-3 py-2 text-sm text-ink outline-none focus:border-brass focus:ring-1 focus:ring-brass"
             />
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-slate-700">Client email</label>
+            <label className="block text-sm font-medium text-ink-soft">Client email</label>
             <input
               type="email"
               required
               value={clientEmail}
               onChange={(event) => setClientEmail(event.target.value)}
-              className="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2 text-sm outline-none focus:border-indigo-600 focus:ring-1 focus:ring-indigo-600"
+              className="mt-1 w-full rounded-lg border border-line bg-bg px-3 py-2 text-sm text-ink outline-none focus:border-brass focus:ring-1 focus:ring-brass"
             />
           </div>
 
           {errorMessage && (
-            <p className="rounded-lg bg-rose-50 px-3 py-2 text-sm text-rose-700">{errorMessage}</p>
+            <p className="rounded-lg bg-danger-soft px-3 py-2 text-sm text-danger-text">{errorMessage}</p>
           )}
 
           <Button type="submit" className="w-full" disabled={createAppointment.isPending}>

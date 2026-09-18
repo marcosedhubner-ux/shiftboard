@@ -1,4 +1,4 @@
-# ShiftBoard
+# Roster
 
 Agendamento de equipe multi-tenant para negócios de serviço — salões, clínicas, estúdios, qualquer coisa reservada por cadeira ou por horário. Cada negócio tem seu próprio espaço isolado; cada reserva é conferida contra a agenda daquele profissional antes de poder ser salva.
 

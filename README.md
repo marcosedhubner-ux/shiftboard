@@ -1,4 +1,4 @@
-# ShiftBoard
+# Roster
 
 Multi-tenant staff scheduling for service businesses — salons, clinics, studios, anything booked by the seat or the chair. Every business gets its own isolated workspace; every booking is checked against that staff member's existing schedule before it's allowed to save.
 

@@ -17,25 +17,27 @@ export function StaffColumn({
     .sort((a, b) => a.startTime.localeCompare(b.startTime));
 
   return (
-    <div className="flex min-w-[260px] flex-1 flex-col gap-3">
-      <div>
-        <h3 className="text-sm font-semibold text-slate-900">{staff.fullName}</h3>
-        <p className="text-xs text-slate-400">{staffAppointments.length} booked</p>
+    <div className="flex min-w-[260px] flex-1 flex-col">
+      <div className="border-b border-line pb-2">
+        <h3 className="font-serif text-sm font-semibold text-ink">{staff.fullName}</h3>
+        <p className="text-xs text-ink-soft">{staffAppointments.length} booked</p>
       </div>
 
       {staffAppointments.length === 0 ? (
-        <p className="rounded-lg border border-dashed border-slate-200 p-3 text-xs text-slate-400">
+        <p className="mt-3 rounded-lg border border-dashed border-line p-3 text-xs text-ink-soft">
           No appointments
         </p>
       ) : (
-        staffAppointments.map((appointment) => (
-          <AppointmentCard
-            key={appointment.id}
-            appointment={appointment}
-            currentUserId={currentUserId}
-            role={role}
-          />
-        ))
+        <div className="divide-y divide-line">
+          {staffAppointments.map((appointment) => (
+            <AppointmentCard
+              key={appointment.id}
+              appointment={appointment}
+              currentUserId={currentUserId}
+              role={role}
+            />
+          ))}
+        </div>
       )}
     </div>
   );

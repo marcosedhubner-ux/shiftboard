@@ -4,10 +4,11 @@ import type { ButtonHTMLAttributes } from "react";
 type ButtonVariant = "primary" | "secondary" | "ghost" | "danger";
 
 const variantStyles: Record<ButtonVariant, string> = {
-  primary: "bg-indigo-600 text-white hover:bg-indigo-500 disabled:bg-indigo-300",
-  secondary: "bg-white text-slate-900 ring-1 ring-inset ring-slate-300 hover:bg-slate-50",
-  ghost: "text-slate-600 hover:bg-slate-100",
-  danger: "bg-rose-600 text-white hover:bg-rose-500 disabled:bg-rose-200",
+  primary:
+    "bg-brass text-[#12151b] hover:bg-brass-hover disabled:bg-brass/35 disabled:text-[#12151b]/50",
+  secondary: "bg-surface text-ink ring-1 ring-inset ring-line hover:bg-surface-hover",
+  ghost: "text-ink-soft hover:bg-surface-hover",
+  danger: "bg-danger text-white hover:bg-danger/85 disabled:bg-danger/35",
 };
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {

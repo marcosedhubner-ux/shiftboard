@@ -9,12 +9,12 @@ function DashboardView() {
   const { data, isLoading } = useWeeklySummary();
 
   if (isLoading || !data) {
-    return <p className="text-sm text-slate-400">Loading dashboard...</p>;
+    return <p className="text-sm text-ink-soft">Loading dashboard...</p>;
   }
 
   return (
     <div>
-      <h1 className="mb-6 text-2xl font-bold text-slate-900">This week</h1>
+      <h1 className="mb-6 font-serif text-2xl font-bold text-ink">This week</h1>
 
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
         <StatCard label="Booked" value={String(data.totalBooked)} />
@@ -23,15 +23,15 @@ function DashboardView() {
         <StatCard label="Estimated revenue" value={`$${data.estimatedRevenue.toFixed(2)}`} />
       </div>
 
-      <Card className="mt-6">
-        <h2 className="text-sm font-semibold text-slate-700">Busiest team member</h2>
+      <Card accent className="mt-6">
+        <h2 className="text-sm font-semibold text-ink-soft">Busiest team member</h2>
         {data.busiestStaff ? (
-          <p className="mt-3 text-sm text-slate-700">
-            <span className="font-semibold text-slate-900">{data.busiestStaff.name}</span> with{" "}
+          <p className="mt-3 text-sm text-ink">
+            <span className="font-semibold text-ink">{data.busiestStaff.name}</span> with{" "}
             {data.busiestStaff.count} appointments this week
           </p>
         ) : (
-          <p className="mt-3 text-sm text-slate-400">No appointments booked this week yet.</p>
+          <p className="mt-3 text-sm text-ink-soft">No appointments booked this week yet.</p>
         )}
       </Card>
     </div>

@@ -38,41 +38,41 @@ export function InviteStaffForm() {
   return (
     <form onSubmit={handleSubmit} className="grid grid-cols-1 gap-4 sm:grid-cols-2">
       <div>
-        <label className="block text-sm font-medium text-slate-700">Full name</label>
+        <label className="block text-sm font-medium text-ink-soft">Full name</label>
         <input
           required
           value={fullName}
           onChange={(event) => setFullName(event.target.value)}
-          className="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2 text-sm outline-none focus:border-indigo-600 focus:ring-1 focus:ring-indigo-600"
+          className="mt-1 w-full rounded-lg border border-line bg-bg px-3 py-2 text-sm text-ink outline-none focus:border-brass focus:ring-1 focus:ring-brass"
         />
       </div>
       <div>
-        <label className="block text-sm font-medium text-slate-700">Email</label>
+        <label className="block text-sm font-medium text-ink-soft">Email</label>
         <input
           type="email"
           required
           value={email}
           onChange={(event) => setEmail(event.target.value)}
-          className="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2 text-sm outline-none focus:border-indigo-600 focus:ring-1 focus:ring-indigo-600"
+          className="mt-1 w-full rounded-lg border border-line bg-bg px-3 py-2 text-sm text-ink outline-none focus:border-brass focus:ring-1 focus:ring-brass"
         />
       </div>
       <div>
-        <label className="block text-sm font-medium text-slate-700">Temporary password</label>
+        <label className="block text-sm font-medium text-ink-soft">Temporary password</label>
         <input
           type="password"
           required
           minLength={8}
           value={password}
           onChange={(event) => setPassword(event.target.value)}
-          className="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2 text-sm outline-none focus:border-indigo-600 focus:ring-1 focus:ring-indigo-600"
+          className="mt-1 w-full rounded-lg border border-line bg-bg px-3 py-2 text-sm text-ink outline-none focus:border-brass focus:ring-1 focus:ring-brass"
         />
       </div>
       <div>
-        <label className="block text-sm font-medium text-slate-700">Role</label>
+        <label className="block text-sm font-medium text-ink-soft">Role</label>
         <select
           value={role}
           onChange={(event) => setRole(event.target.value as "ADMIN" | "STAFF")}
-          className="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2 text-sm outline-none focus:border-indigo-600 focus:ring-1 focus:ring-indigo-600"
+          className="mt-1 w-full rounded-lg border border-line bg-bg px-3 py-2 text-sm text-ink outline-none focus:border-brass focus:ring-1 focus:ring-brass"
         >
           <option value="STAFF">Staff</option>
           <option value="ADMIN">Admin</option>
@@ -80,10 +80,10 @@ export function InviteStaffForm() {
       </div>
 
       {errorMessage && (
-        <p className="sm:col-span-2 rounded-lg bg-rose-50 px-3 py-2 text-sm text-rose-700">{errorMessage}</p>
+        <p className="sm:col-span-2 rounded-lg bg-danger-soft px-3 py-2 text-sm text-danger-text">{errorMessage}</p>
       )}
       {successMessage && (
-        <p className="sm:col-span-2 rounded-lg bg-emerald-50 px-3 py-2 text-sm text-emerald-700">
+        <p className="sm:col-span-2 rounded-lg bg-success-soft px-3 py-2 text-sm text-success-text">
           {successMessage}
         </p>
       )}

@@ -35,17 +35,17 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="grid min-h-screen grid-cols-1 lg:grid-cols-2">
-      <div className="relative hidden overflow-hidden bg-indigo-950 lg:flex lg:flex-col lg:justify-between lg:p-12">
-        <div className="absolute inset-0 opacity-40 [background-image:radial-gradient(circle_at_1px_1px,rgba(255,255,255,0.15)_1px,transparent_0)] [background-size:24px_24px]" />
+    <div className="grid min-h-screen grid-cols-1 bg-bg lg:grid-cols-2">
+      <div className="roster-lines relative hidden overflow-hidden bg-bg lg:flex lg:flex-col lg:justify-between lg:p-12">
         <div className="relative z-10">
-          <span className="text-2xl font-bold text-white">ShiftBoard</span>
+          <span className="font-serif text-2xl font-bold text-ink">Roster</span>
         </div>
         <div className="relative z-10 space-y-4">
-          <p className="max-w-md text-3xl font-semibold leading-tight text-white">
-            Book every seat, chair or room without ever double-booking staff.
+          <p className="max-w-md text-3xl font-semibold leading-tight text-ink">
+            Staff scheduling that refuses to double-book someone, even when two requests land in
+            the same second.
           </p>
-          <p className="max-w-sm text-sm text-indigo-200">
+          <p className="max-w-sm text-sm text-ink-soft">
             One calendar per business, isolated from every other tenant on the platform, with
             conflict-free scheduling built into every booking.
           </p>
@@ -54,12 +54,12 @@ export default function LoginPage() {
 
       <div className="flex items-center justify-center px-6 py-16">
         <div className="w-full max-w-sm">
-          <h1 className="text-2xl font-bold text-slate-900">Sign in</h1>
-          <p className="mt-1 text-sm text-slate-500">Use your team account to continue.</p>
+          <h1 className="font-serif text-2xl font-bold text-ink">Sign in</h1>
+          <p className="mt-1 text-sm text-ink-soft">Use your team account to continue.</p>
 
           <form onSubmit={handleSubmit} className="mt-8 space-y-4">
             <div>
-              <label className="block text-sm font-medium text-slate-700" htmlFor="email">
+              <label className="block text-sm font-medium text-ink-soft" htmlFor="email">
                 Email
               </label>
               <input
@@ -69,11 +69,11 @@ export default function LoginPage() {
                 autoComplete="email"
                 value={email}
                 onChange={(event) => setEmail(event.target.value)}
-                className="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2 text-sm outline-none focus:border-indigo-600 focus:ring-1 focus:ring-indigo-600"
+                className="mt-1 w-full rounded-lg border border-line bg-surface px-3 py-2 text-sm text-ink outline-none focus:border-brass focus:ring-1 focus:ring-brass"
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-slate-700" htmlFor="password">
+              <label className="block text-sm font-medium text-ink-soft" htmlFor="password">
                 Password
               </label>
               <input
@@ -83,12 +83,14 @@ export default function LoginPage() {
                 autoComplete="current-password"
                 value={password}
                 onChange={(event) => setPassword(event.target.value)}
-                className="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2 text-sm outline-none focus:border-indigo-600 focus:ring-1 focus:ring-indigo-600"
+                className="mt-1 w-full rounded-lg border border-line bg-surface px-3 py-2 text-sm text-ink outline-none focus:border-brass focus:ring-1 focus:ring-brass"
               />
             </div>
 
             {errorMessage && (
-              <p className="rounded-lg bg-rose-50 px-3 py-2 text-sm text-rose-700">{errorMessage}</p>
+              <p className="rounded-lg bg-danger-soft px-3 py-2 text-sm text-danger-text">
+                {errorMessage}
+              </p>
             )}
 
             <Button type="submit" className="w-full" disabled={login.isPending}>
@@ -96,20 +98,20 @@ export default function LoginPage() {
             </Button>
           </form>
 
-          <p className="mt-6 text-center text-sm text-slate-500">
+          <p className="mt-6 text-center text-sm text-ink-soft">
             New business?{" "}
-            <Link href="/register" className="font-medium text-indigo-600 hover:underline">
+            <Link href="/register" className="font-medium text-brass hover:underline">
               Create your workspace
             </Link>
           </p>
 
-          <div className="mt-8 rounded-lg border border-dashed border-slate-300 p-4">
-            <p className="text-xs font-medium uppercase tracking-wide text-slate-400">
+          <div className="mt-8 rounded-lg border border-dashed border-line p-4">
+            <p className="text-xs font-medium uppercase tracking-wide text-ink-soft">
               Demo accounts (password: Passw0rd!123)
             </p>
             <ul className="mt-2 space-y-1">
               {DEMO_ACCOUNTS.map((account) => (
-                <li key={account.email} className="flex justify-between text-xs text-slate-600">
+                <li key={account.email} className="flex justify-between text-xs text-ink-soft">
                   <span>{account.role}</span>
                   <span className="font-mono">{account.email}</span>
                 </li>
