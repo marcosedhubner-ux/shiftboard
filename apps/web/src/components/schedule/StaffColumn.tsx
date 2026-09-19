@@ -24,9 +24,20 @@ export function StaffColumn({
       </div>
 
       {staffAppointments.length === 0 ? (
-        <p className="mt-3 rounded-lg border border-dashed border-line p-3 text-xs text-ink-soft">
-          No appointments
-        </p>
+        <div className="mt-3 flex flex-col items-center gap-2 rounded-lg border border-dashed border-line px-3 py-6 text-center">
+          <svg
+            viewBox="0 0 20 20"
+            fill="none"
+            className="h-5 w-5 text-brass/45"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            aria-hidden="true"
+          >
+            <rect x="3" y="4" width="14" height="13" rx="1.5" />
+            <path d="M3 8h14M7 2.5v3M13 2.5v3" strokeLinecap="round" />
+          </svg>
+          <p className="text-xs text-ink-soft">No appointments</p>
+        </div>
       ) : (
         <div className="divide-y divide-line">
           {staffAppointments.map((appointment) => (
